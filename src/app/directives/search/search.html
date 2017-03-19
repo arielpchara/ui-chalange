@@ -1,0 +1,15 @@
+<form name="locateForm" novalidate class="form-search" ng-submit="search.locate(locateForm)">
+    <div class="input-group">
+        <input name="host" type="text" class="form-control host" placeholder="Enter host name" ng-model="search.host" host required ng-disabled="search.loading">
+
+        <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary btn-locate" ng-disabled="search.loading">
+            <span ng-show="!search.loading"><i class="fa fa-map-marker"></i> Locate</span>
+        <span ng-show="search.loading"><i class="fa fa-refresh"></i></span>
+        </button>
+        </span>
+    </div>
+    <span class="label label-danger" ng-show="!search.invalid && locateForm.host.$touched && locateForm.host.$error.required">Host is mandatory</span>
+    <span class="label label-danger" ng-show="!search.invalid && locateForm.host.$touched && !locateForm.host.$error.required && locateForm.host.$error.host">Please inser a valid host name</span>
+    <span class="label label-danger" ng-show="search.invalid">Host not found</span>
+</form>

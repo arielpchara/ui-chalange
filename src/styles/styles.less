@@ -1,0 +1,42 @@
+@import "bootstrap/index";
+@import "variables";
+@import "bootswatch";
+@import "font-awesome-regular";
+@import "font-awesome";
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@smartphones: ~"only screen and (max-width: 768px)";
+@desktop: ~"only screen and (min-width: 768px)";
+
+.angular-google-map-container { height: 400px; }
+
+.form-search {
+    .input-group {
+        position: relative;
+        .label {
+            position: absolute;
+            right: 110px;
+            top: 12px;
+        }
+    }
+    .btn-locate {
+        width: 100px;
+        .fa-refresh {
+            animation: spin .8s infinite linear;
+        }
+    }
+}
+
+
+
+@media @smartphones {
+    .angular-google-map-container { height: 250px; }
+}

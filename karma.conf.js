@@ -18,7 +18,7 @@ module.exports = function(config) {
             'node_modules/angular/angular.min.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/leaflet/dist/leaflet.js',
-            'dist/js/app.js',
+            'dist/js/bundle.js',
             'test/**/*.spec.js'
         ],
 
