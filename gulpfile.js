@@ -23,7 +23,7 @@ gulp.task('esliint', function lint() {
         .pipe(eslint.format());
 });
 
-gulp.task('build', function build() {
+gulp.task('scripts', function scripts() {
     const DEST = './dist/js/';
     const b = browserify({
             entries: './src/app/app.js'
@@ -40,7 +40,7 @@ gulp.task('build', function build() {
         .on('error', gutil.log)
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(DEST))
-        .pipe(notify('build complete'));
+        .pipe(notify('scripts complete'));
 });
 
 gulp.task('fonts', function fonts() {
@@ -63,7 +63,10 @@ gulp.task('styles', function styles() {
         .pipe(notify('styles complete'));
 });
 
-gulp.task('watch', ['build', 'styles'], function watch() {
+gulp.task('watch', ['scripts', 'styles'], function watch() {
     gulp.watch(['src/app/**/*.js', 'src/app/**/*.html'], ['build']);
     gulp.watch(['src/styles/**/*.less'], ['styles']);
 });
+
+
+gulp.task('build', ['fonst', 'styles', 'scripts']);

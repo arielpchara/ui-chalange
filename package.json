@@ -5,10 +5,9 @@
     "main": "index.html",
     "scripts": {
         "serve": "live-server --watch=dist,index.html",
-        "build": "gulp build",
+        "build": "git submodule update && gulp build",
         "dev": "gulp watch",
-        "test": "karma start --single-run --browsers PhantomJS",
-        "plato": "plato -r -d ./Tests/Plato/ -l .jshintrc ./Sources/Assets/Scripts/**/*.js"
+        "test": "karma start --single-run --browsers PhantomJS"
     },
     "author": "",
     "license": "proprietary",
